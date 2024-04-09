@@ -51,6 +51,9 @@ const config: Config = {
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
+        // solutions: {
+        //   showReadingTime: true,
+        // },
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -70,7 +73,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'My Site',
+      title: 'CSES 題解網站',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
@@ -80,55 +83,52 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: '題解',
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
+        // {to: '/blog', label: 'Blog', position: 'left'},
+        // {to: '/docs', label: '題解', position: 'left'},
+        // {
+        //   href: 'https://github.com/facebook/docusaurus',
+        //   label: 'GitHub',
+        //   position: 'right',
+        // },
       ],
     },
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: '更多資訊',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/intro',
+              label: 'SCINT 北台灣學生資訊社群',
+              to: 'https://join.scint.org',
             },
           ],
         },
         {
-          title: 'Community',
+          title: '社群',
           items: [
             {
               label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              href: 'https://stackoverflow.com/',
             },
             {
               label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              href: 'https://discordapp.com/',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/',
             },
           ],
         },
         {
-          title: 'More',
+          title: '贊助商 (#',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              label: 'APCS Guide',
+              href: 'https://instagram.com/apcs.guide/',
             },
           ],
         },
