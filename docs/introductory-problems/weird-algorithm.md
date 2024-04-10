@@ -52,12 +52,11 @@ $n = 5$ 是奇數，所以讓 $n = 5 \times 3 + 1 = 16$；
 ### 範例程式碼
 
 <details>
-    <summary>C++ 範例</summary>
-
-    ```cpp
+<summary>C++ 範例</summary>
+```cpp
+ 
     #include <iostream>
-    using namespace std;
-
+    using namespace std;    
     int main() {
         long long a;
         cin >> a;
