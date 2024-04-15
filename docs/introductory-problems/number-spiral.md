@@ -62,14 +62,14 @@ Output :
 那麼根據它與同層對角線格子的相對位置我們有以下四種情形：
 | | $\ell$ 為奇數 | $\ell$ 為偶數 |
 |:---:|:---:|:---:|
-| 在對角線左邊 <br> $x < \ell$ | $N(y,x) = m_\ell - (\ell - x)$ | $N(y,x) = m_\ell + (\ell - x)$ |
-| 在對角線上面 <br> $\ell > y$ | $N(y,x) = m_\ell + (\ell - y)$ | $N(y,x) = m_\ell - (\ell - y)$ |
+| 在對角線左邊  $x < \ell$ | $N(y,x) = m_\ell - (\ell - x)$ | $N(y,x) = m_\ell + (\ell - x)$ |
+| 在對角線上面  $\ell > y$ | $N(y,x) = m_\ell + (\ell - y)$ | $N(y,x) = m_\ell - (\ell - y)$ |
 
 但按照定義，層數 $\ell = \max(x, y)$，表格內的 $\ell$ 根本可以用 $x$ 或 $y$ 代替。於是就變成下面這樣：
 | | $\ell$ 為奇數 | $\ell$ 為偶數 |
 |:---:|:---:|:---:|
-| 在對角線左邊 <br> $x < y$ | $N(y,x) = m_\ell - (y - x)$ | $N(y,x) = m_\ell + (y - x)$ |
-| 在對角線上面 <br> $x > y$ | $N(y,x) = m_\ell + (x - y)$ | $N(y,x) = m_\ell - (x - y)$ |
+| 在對角線左邊  $x < y$ | $N(y,x) = m_\ell - (y - x)$ | $N(y,x) = m_\ell + (y - x)$ |
+| 在對角線上面  $x > y$ | $N(y,x) = m_\ell + (x - y)$ | $N(y,x) = m_\ell - (x - y)$ |
 
 接著又因為減去一個數等於加上它的相反數，而且 $(x-y)$ 與 $(y-x)$ 互為相反數。所以說
 - 當 $\ell$ 為奇數時，$N(y,x) = m_\ell + (x - y)$；
