@@ -35,27 +35,27 @@ Output :
 
 <details> 
 <summary>C++範例</summary>
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
+    ```cpp
+    #include <bits/stdc++.h>
+    using namespace std;
 
-int main() {
-    int n, x;
-    vector<int> xs;
-    cin >> n;
-    for (int i = 0; i < n - 1; i++) {
-        cin >> x;
-        xs.push_back(x);
-    }
-    sort(xs.begin(), xs.end());
-    for (int i = 0; i < n; i++) {
-        if(xs[i] != i + 1) {
-            cout << i + 1;
-            break;
+    int main() {
+        int n, x;
+        vector<int> xs;
+        cin >> n;
+        for (int i = 0; i < n - 1; i++) {
+            cin >> x;
+            xs.push_back(x);
+        }
+        sort(xs.begin(), xs.end());
+        for (int i = 0; i < n; i++) {
+            if(xs[i] != i + 1) {
+                cout << i + 1;
+                break;
+            }
         }
     }
-}
-```
+    ```
 </details>
 
 想法 2：計數檢查
@@ -66,33 +66,33 @@ int main() {
 
 <details>
 <summary>C++ 範例 </summary>
-```cpp=
-#include <bits/stdc++.h>
-using namespace std;
+    ```cpp
+    #include <bits/stdc++.h>
+    using namespace std;
 
-int main() {
-    int n, x;
-    cin >> n;
-    vector<int> cnt(n, 0);
-    for (int i = 0; i < n - 1; i++) {
-        cin >> x;
-        cnt[x-1] = 1;
-    }
-    for (int i = 0; i < n; i++) {
-        if(cnt[i] == 0) {
-            cout << i + 1;
-            break;
+    int main() {
+        int n, x;
+        cin >> n;
+        vector<int> cnt(n, 0);
+        for (int i = 0; i < n - 1; i++) {
+            cin >> x;
+            cnt[x-1] = 1;
         }
-    }
-}
-```
+        for (int i = 0; i < n; i++) {
+            if(cnt[i] == 0) {
+                cout << i + 1;
+                break;
+            }
+        }
+    }   
+    ```
 </details>
 
 想法 3：從總和檢查
 ---
-考慮一個有結合律與交換律的「加法」運算 $\oplus$，那麼輸入就可以不斷用 $\oplus$ 來「加總」成 \\[
+考慮一個有結合律與交換律的「加法」運算 $\oplus$，那麼輸入就可以不斷用 $\oplus$ 來「加總」成 $
   1 \oplus 2 \oplus \cdots \oplus (k-1) \oplus (k+1) \oplus \cdots \oplus n,
-\\] 其中 $k$ 是缺少的數字。如果這個 $\oplus$ 運算是可逆的，那我們就能拿完整 $1 \oplus 2 \oplus \cdots \oplus n$ 的結果「減去」上面的「總和」，得到缺少的 $k$。
+$ 其中 $k$ 是缺少的數字。如果這個 $\oplus$ 運算是可逆的，那我們就能拿完整 $1 \oplus 2 \oplus \cdots \oplus n$ 的結果「減去」上面的「總和」，得到缺少的 $k$。
 
 基本上需要 $O(n)$ 的時間與 $O(1)$ 的空間來計算「總和」。
 
@@ -109,30 +109,30 @@ int main() {
 
 <details>
 <summary>C++ 範例 <summary>
-```cpp=
-#include <bits/stdc++.h>
-using namespace std;
+    ```cpp
+    #include <bits/stdc++.h>
+    using namespace std;
 
-int main() {
-    long long n, x;
-    long long sum = 0;
-    cin >> n;
-    for (int i = 0; i < n - 1; i++) {
-        cin >> x;
-        sum += x;
+    int main() {
+        long long n, x;
+        long long sum = 0;
+        cin >> n;
+        for (int i = 0; i < n - 1; i++) {
+            cin >> x;
+            sum += x;
+        }
+        cout << (n * (n + 1) / 1) - sum;
     }
-    cout << (n * (n + 1) / 1) - sum;
-}
-```
+    ```
 </details>
 
 ### 想法 3-2：XOR 版
 令 $a \oplus b$ 為 $a$ 與 $b$ 經過 bitwise XOR（也就是程式上的 `a ^ b`）之後的運算結果，這個運算也是滿足結合律與交換律的。並且任何整數的反元素就是自己：$a \oplus b \oplus b = a$，換句話說，「減去」跟「加上」是同樣的運算。
 
-另外，觀察可得 $4k \oplus (4k+1) \oplus (4k+2) \oplus (4k+3) = 0$，於是就有\\[
+另外，觀察可得 $4k \oplus (4k+1) \oplus (4k+2) \oplus (4k+3) = 0$，於是就有$
   1 \oplus 2 \oplus \cdots \oplus n
   = (4 \lfloor n/4 \rfloor) \oplus \cdots \oplus n,
-\\]其中 $4 \lfloor n/4 \rfloor$ 可以用 `n >> 2 << 2` 算得。
+$其中 $4 \lfloor n/4 \rfloor$ 可以用 `n >> 2 << 2` 算得。
 
 這個方法相較於上一個的方法好的地方在於總和一定比 $2n$ 來得小，較不用擔心太大的 $n$ 會超出整數範圍。
 
@@ -142,22 +142,22 @@ int main() {
 
 <details>
 <summary>C++ 範例 </summary>
-```cpp=
-#include <bits/stdc++.h>
-using namespace std;
+    ```cpp=
+    #include <bits/stdc++.h>
+    using namespace std;
 
-int main() {
-    int n, x;
-    int all = 0, sum = 0;
-    cin >> n;
-    for (int i = 0; i < n - 1; i++) {
-        cin >> x;
-        sum ^= x;
+    int main() {
+        int n, x;
+        int all = 0, sum = 0;
+        cin >> n;
+        for (int i = 0; i < n - 1; i++) {
+            cin >> x;
+            sum ^= x;
+        }
+        for (int i = n >> 2 << 2; i <= n; i++) {
+            all ^= i;
+        }
+        cout << (all ^ sum);
     }
-    for (int i = n >> 2 << 2; i <= n; i++) {
-        all ^= i;
-    }
-    cout << (all ^ sum);
-}
-```
+    ```
 <details>
