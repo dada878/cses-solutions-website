@@ -30,19 +30,23 @@ Output:
 
 ### 範例程式碼
 
-```cpp
-#include <bits/stdc++.h>
-using namespace std;
+<details>
+<summary>C++ 範例</summary>
+    ```cpp
+    
+    #include <bits/stdc++.h>
+    using namespace std;
  
-set<int> nums;
+    set<int> nums;
 
-int main() {
-    int n, x;
-    cin >> n;
-    while (n--) {
-        cin >> x;
-        nums.insert(x);
+    int main() {
+        int n, x;
+        cin >> n;
+        while (n--) {
+            cin >> x;
+            nums.insert(x);
+        }
+        cout << nums.size();
     }
- 
-    cout << nums.size();
-}
+    ```
+</details>
