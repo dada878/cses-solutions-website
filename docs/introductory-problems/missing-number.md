@@ -108,7 +108,7 @@ $ 其中 $k$ 是缺少的數字。如果這個 $\oplus$ 運算是可逆的，那
 ### 範例程式碼
 
 <details>
-<summary>C++ 範例 <summary>
+<summary>C++ 範例 </summary>
     ```cpp
     #include <bits/stdc++.h>
     using namespace std;
