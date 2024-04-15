@@ -142,7 +142,7 @@ $其中 $4 \lfloor n/4 \rfloor$ 可以用 `n >> 2 << 2` 算得。
 
 <details>
 <summary>C++ 範例 </summary>
-    ```cpp=
+    ```cpp
     #include <bits/stdc++.h>
     using namespace std;
 
