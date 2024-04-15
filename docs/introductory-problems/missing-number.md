@@ -63,6 +63,9 @@ int main() {
 我們可以先建立長度為 $n$ 的列表來記錄個別數字出現的次數（在這題要不是 $0$ 就是 $1$），之後遍歷整個列表找哪個數字出現 $0$ 次就好。
 
 ### 範例程式碼
+
+<details>
+<summary>C++ 範例 </summary>
 ```cpp=
 #include <bits/stdc++.h>
 using namespace std;
@@ -83,6 +86,7 @@ int main() {
     }
 }
 ```
+</details>
 
 想法 3：從總和檢查
 ---
@@ -102,6 +106,9 @@ int main() {
 > 或者你可以在每次運算後都 mod 比 $n$ 大的數。
 
 ### 範例程式碼
+
+<details>
+<summary>C++ 範例 <summary>
 ```cpp=
 #include <bits/stdc++.h>
 using namespace std;
@@ -117,6 +124,7 @@ int main() {
     cout << (n * (n + 1) / 1) - sum;
 }
 ```
+</details>
 
 ### 想法 3-2：XOR 版
 令 $a \oplus b$ 為 $a$ 與 $b$ 經過 bitwise XOR（也就是程式上的 `a ^ b`）之後的運算結果，這個運算也是滿足結合律與交換律的。並且任何整數的反元素就是自己：$a \oplus b \oplus b = a$，換句話說，「減去」跟「加上」是同樣的運算。
@@ -131,6 +139,9 @@ int main() {
 > 下面的過程中都是位元運算，若加上 io 優化這題甚至能做成 n 到 8e18 的鴨腸題。
 
 ### 範例程式碼
+
+<details>
+<summary>C++ 範例 </summary>
 ```cpp=
 #include <bits/stdc++.h>
 using namespace std;
@@ -149,5 +160,4 @@ int main() {
     cout << (all ^ sum);
 }
 ```
----
-回 [「CSES題解集」](https://hackmd.io/MpE3CP9eQUu20n3scMF5Fw?view)
+<details>
