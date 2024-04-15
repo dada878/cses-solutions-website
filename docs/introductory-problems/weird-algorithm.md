@@ -34,7 +34,6 @@ $n = 3$ 是奇數，所以讓 $n = 3 \times 3 + 1 = 10$；
 $n = 10$ 是偶數，所以讓 $n = 10 \div 2 = 5$；
 $n = 5$ 是奇數，所以讓 $n = 5 \times 3 + 1 = 16$；
 以此類推，這個過程會是
-
 $ 3 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1$
 
 想法
@@ -89,13 +88,13 @@ print(*xs)
 <details>
 <summary>Haskell 範例</summary>
 
-```haskell
-collatz :: Int -> [Int]
-collatz 1 = [1]
-collatz n | even n    = n : collatz (n `div` 2)
-          | otherwise = n : collatz (3 * n + 1)
+    ```haskell
+    collatz :: Int -> [Int]
+    collatz 1 = [1]
+    collatz n | even n    = n : collatz (n `div` 2)
+              | otherwise = n : collatz (3 * n + 1)
 
-main :: IO ()
-main = interact $ unwords . map show . collatz . read
-```
+    main :: IO ()
+    main = interact $ unwords . map show . collatz . read
+    ```
 </details>
