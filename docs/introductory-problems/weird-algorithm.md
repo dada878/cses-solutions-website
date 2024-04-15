@@ -49,24 +49,24 @@ $ 3 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1$
 
 <details>
 <summary>C++ 範例</summary>
-```cpp
+    ```cpp
  
-#include <iostream>
-using namespace std;    
-int main() {
-    long long a;
-    cin >> a;
-    cout << a << ' ';
-    while (a != 1) {
-        if (a % 2 == 1) {
-            a = a * 3 + 1;
-        } else {
-            a /= 2;
-        }
+    #include <iostream>
+    using namespace std;    
+    int main() {
+        long long a;
+        cin >> a;
         cout << a << ' ';
+        while (a != 1) {
+            if (a % 2 == 1) {
+                a = a * 3 + 1;
+            } else {
+                a /= 2;
+            }
+            cout << a << ' ';
+        }   
     }
-}
-```
+    ```
 </details>
 
 <details>
