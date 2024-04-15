@@ -51,7 +51,7 @@ Output :
 如此一來，要求出位在第 $y$ 橫列、第 $x$ 直行上的數字 $N(y,x)$ 是多少，我們可以根據它的層數以及它與同層的對角線格子之間的距離推導出來
 ![image](https://hackmd.io/_uploads/rkKGZLOFT.png)
 比如說要求 $N(4,2)$ 是多少。首先可以算出它位在第 $4$ 層，並且位在對角線格子的左邊 $2$ 格。
-![image](https://hackmd.io/_uploads/BJVXZLOKT.png =400x)
+![image](https://hackmd.io/_uploads/BJVXZLOKT.png)
 因為數字 $N(4,2)$ 在第 $4$ 層，是偶數層，所以從對角線往左 $2$ 格到會讓數字增加 $2$。根據之前的結果知道對角線格子的數字是 $N(4,4) = m_4 = 4 \times 3 + 1 = 13$。那麼就能求出 $N(4,2) = 13 + 2 = 15$。
 <!--
 ![image](https://hackmd.io/_uploads/rk4NZIuYT.png =400x)
