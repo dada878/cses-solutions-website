@@ -160,4 +160,4 @@ $其中 $4 \lfloor n/4 \rfloor$ 可以用 `n >> 2 << 2` 算得。
         cout << (all ^ sum);
     }
     ```
-<details>
+</details>
