@@ -38,7 +38,7 @@ Output :
 首先，我們可以觀察這條對角線（也就是位於第 $i$ 橫列第 $i$ 直行的格子）的規律。
 ![image](https://hackmd.io/_uploads/ByKgZL_tp.png)
 把圖畫得更大一點，就可以得到這樣的數列 $m_i$（[OEIS: A002061](https://oeis.org/A002061)）：
-![image](https://hackmd.io/_uploads/ryg0gIdFa.png =500x)
+![image](https://hackmd.io/_uploads/ryg0gIdFa.png)
 所以說，第 $\ell$ 層中對角線上格子的數字為 $N(\ell,\ell) = m_\ell = \ell \times (\ell - 1) + 1$。
 
 > 這個數列又稱作 Hogben numbers。原始的出處比 CSES 的 number spiral 更像是一個螺旋：
@@ -54,7 +54,7 @@ Output :
 ![image](https://hackmd.io/_uploads/BJVXZLOKT.png)
 因為數字 $N(4,2)$ 在第 $4$ 層，是偶數層，所以從對角線往左 $2$ 格到會讓數字增加 $2$。根據之前的結果知道對角線格子的數字是 $N(4,4) = m_4 = 4 \times 3 + 1 = 13$。那麼就能求出 $N(4,2) = 13 + 2 = 15$。
 <!--
-![image](https://hackmd.io/_uploads/rk4NZIuYT.png =400x)
+![image](https://hackmd.io/_uploads/rk4NZIuYT.png)
 -->
 
 ### 一般情況
