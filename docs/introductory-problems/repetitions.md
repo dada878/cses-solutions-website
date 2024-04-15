@@ -33,28 +33,27 @@ Output :
 ### 範例程式碼
 <details>
 <summary>C++ 範例 </summary>
-```cpp=
-#include <bits/stdc++.h>
-using namespace std;
+    ```cpp
+    #include <bits/stdc++.h>
+    using namespace std;
 
-int main() {
-    char now;
-    char pre = 'X';
-    int cnt = 1, ans = 1;
-    while (cin >> now) {
-        if (now == pre) {
-            ++cnt;
-            if (cnt > ans) {
-                ans = cnt;
+    int main() {
+        char now;
+        char pre = 'X';
+        int cnt = 1, ans = 1;
+        while (cin >> now) {
+            if (now == pre) {
+                ++cnt;
+                if (cnt > ans) {
+                    ans = cnt;
+                }
+            } else {
+                cnt = 1;
+                pre = now;
             }
-        } else {
-            cnt = 1;
-            pre = now;
         }
+        cout << ans;    
     }
-    cout << ans;
-}
-```
+    ```
 </details>
 ---
-回 [「CSES題解集」](https://hackmd.io/MpE3CP9eQUu20n3scMF5Fw?view)
