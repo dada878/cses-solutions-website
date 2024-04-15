@@ -72,17 +72,17 @@ $ 3 \to 10 \to 5 \to 16 \to 8 \to 4 \to 2 \to 1$
 <details>
     <summary>Python 範例</summary>
 
-```python
-xs = [int(input())]
+    ```python
+    xs = [int(input())]
 
-while xs[-1] != 1:
-    if xs[-1] % 2 == 1:
-        xs.append(xs[-1] * 3 + 1)
-    else:
-        xs.append(xs[-1] // 2)
+    while xs[-1] != 1:
+        if xs[-1] % 2 == 1:
+            xs.append(xs[-1] * 3 + 1)
+        else:
+            xs.append(xs[-1] // 2)
 
-print(*xs)
-```
+    print(*xs)
+    ```
 </details>
 
 <details>
