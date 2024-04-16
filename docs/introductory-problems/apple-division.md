@@ -89,3 +89,37 @@ $$000, 001, 010, 011, 100, 101, 110, 111$$
 
 **Note 2:** 這個問題是 Subset Sum 問題的變種，實際上這個問題為 NP-Complete 的問題，現在是否有足夠快速的演算法仍為未知。但同樣題目的變種「背包問題」則是動態規劃的經典問題，當值域被限制時，可以用更快的方式解決問題
 
+<details>
+<summary>C++ 範例 </summary>
+```cpp
+#include <bits/stdc++.h>
+#define int long long
+#define IO ios_base::sync_with_stdio(0), cin.tie(0)
+
+using namespace std;
+
+int n, sum, ans = 1e18, arr[25];
+
+signed main() {
+    IO;
+    cin >> n;
+    for(int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+    for(int i = 0; i < (1 << n); i++) {
+        int fir = 0, sec = 0;
+        for(int j = 0; j < n; j++) {
+            if(i & (1 << j)) {
+                fir += arr[j];
+            }
+            else {
+                sec += arr[j];
+            }
+        }
+        ans = min(ans, abs(fir - sec));
+    }
+    cout << ans;
+}
+```
+</details>
+
