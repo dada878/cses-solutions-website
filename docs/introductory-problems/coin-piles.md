@@ -1,7 +1,6 @@
 Coin Piles
 ===
 
-
 題目
 ---
 
@@ -61,4 +60,4 @@ int main(){
     }
 }
 ```
-</summary>
+</details>
