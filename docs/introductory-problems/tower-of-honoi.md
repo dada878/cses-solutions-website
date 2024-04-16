@@ -1,3 +1,7 @@
+---
+sidebar_position: 14
+---
+
 Tower of Hanoi
 ===
 

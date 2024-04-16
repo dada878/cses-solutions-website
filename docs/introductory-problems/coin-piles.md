@@ -1,4 +1,8 @@
-Coin Piles
+---
+sidebar_position: 11
+---
+
+oin Piles
 ===
 
 題目
