@@ -64,19 +64,19 @@ cbaaa
  
 using namespace std;
  
-int main(){
-	fastio
-	vector<string> v;
-	string s;
-	cin >> s;
-	sort(s.begin(), s.end());
-	do{
-		v.push_back(s);
-	}while(next_permutation(s.begin(), s.end()));
-	cout << v.size() << "\n";
-	for(auto x : v){
-		cout << x << "\n";
-	}
+int main() {
+    fastio
+    vector<string> v;
+    string s;
+    cin >> s;
+    sort(s.begin(), s.end());
+    do{
+        v.push_back(s);
+    } while(next_permutation(s.begin(), s.end()));
+    cout << v.size() << "\n";
+    for(auto x : v){
+        cout << x << "\n";
+    }
 }
 
 ```
