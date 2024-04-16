@@ -1,4 +1,4 @@
-CSES Problem Set — Tower of Hanoi 題解
+Tower of Hanoi
 ===
 
 題目
