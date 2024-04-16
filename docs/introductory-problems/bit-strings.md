@@ -75,7 +75,7 @@ $ 並使用遞迴來實現。
 
 <details>
 <summary>C++ 範例</summary>
-```cpp=
+```cpp
 int fastpow(int x, int n) {
     if (n == 0)
         return 1;
