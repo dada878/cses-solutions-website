@@ -46,6 +46,7 @@ Output :
 ![image](https://hackmd.io/_uploads/rJaE5q3xC.png)
 
 不符合條件的情況有三種 : 
+
 一、在同一行有另一個皇后
 
 二、在對角線有另一個皇后
