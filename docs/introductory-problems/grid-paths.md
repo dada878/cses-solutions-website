@@ -62,6 +62,7 @@ using namespace std;
 string str;
 int ans = 0;
 bool vis[9][9];
+// dx 和 dy 用來枚舉四個方位
 int dx[4] = {0, 0, 1, -1};
 int dy[4] = {1, -1, 0, 0};
  
@@ -71,11 +72,13 @@ void dfs(int now,int x,int y) {
         if(now == 48) {
             ans++;
         }
+        // 優化 1
         return;
     }
     if(now == 48) {
         return;
     }
+    // 優化 2 和 3
     if(vis[x][y + 1] == true && vis[x][y - 1] == true && vis[x - 1][y] == false && vis[x + 1][y] == false) {
         return;
     }
@@ -120,6 +123,7 @@ void dfs(int now,int x,int y) {
 signed main()
 {
     cin>>str;
+    // 將格子最外圍設成牆壁
     memset(vis,true,sizeof(vis));
     for(int i = 1; i < 8; i++) {
         for(int j = 1; j < 8; j++) {

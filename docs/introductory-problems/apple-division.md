@@ -59,9 +59,11 @@ int n, sum, ans = 1e18, arr[25];
  
 void cal(int now, int val) {
     if(now == n) {
+        // 計算兩邊的差值
         ans = min(ans, abs(abs(sum - val) - val));
         return;
     }
+    // 分別枚舉選或不選
     cal(now + 1, val + arr[now]);
     cal(now + 1, val);
 }
@@ -111,6 +113,7 @@ signed main() {
         cin >> arr[i];
     }
     for(int i = 0; i < (1 << n); i++) {
+        // 將 0 放在第一堆， 1 放在第二堆
         int fir = 0, sec = 0;
         for(int j = 0; j < n; j++) {
             if(i & (1 << j)) {
