@@ -11,6 +11,7 @@ Grid Paths
 步驟總共有 $48$ 個字元，包含 `U` `R` `D` `L` 和 `?`，分別代表 `上` `右` `下` `左` 和 `四個方位都可以`。 
 
 例 : DRURRRRRDDDLUULDDDLDRRURDDLLLLLURULURRUULDLLDDDD
+
 ![alt text](image-7.png)
 
 ### 輸入
