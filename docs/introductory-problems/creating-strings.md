@@ -55,7 +55,9 @@ cbaaa
 
 使用 C++ 內建的函式 `next_permutation` 即可解決
 
-**Note:** C++ 的 `string` 其實就是 `vector<char>` 的進化版
+**Note 1 :** C++ 的 `string` 其實就是 `vector<char>` 的進化版
+**Note 2 :** `do while` 跟 `while` 的差別在於，`do while` 會先執行回圈內的程式，再判斷是否符合條件
+**Note 3 :** `next_permutation` 是一個枚舉函式，他會根據字典序從小到大枚舉每一種排列，因此在使用前必須先將東西排序好才能枚舉到每一種情況
 
 ### 範例程式碼
 <details>
