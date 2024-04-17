@@ -53,7 +53,7 @@ Output :
 #include <iostream>
 using namespace std;
 
-void hanoi(int n, char from_s, char to_s, char aux_s) {
+void hanoi(int n, int from_s, int to_s, int aux_s) {
     if (n == 1) {
         cout << from_s << ' ' << to_s << '\n';
     } else {
@@ -67,7 +67,7 @@ int main() {
     int n;
     cin >> n;
     cout << (1 << n) - 1 << '\n';
-    hanoi(n, '1', '3', '2');
+    hanoi(n, 1, 3, 2);
 }
 ```
 </details>
