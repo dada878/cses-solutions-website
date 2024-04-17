@@ -55,6 +55,12 @@ Output :
 
 因此當我們遇到這三種狀況的時候可以回到前一列繼續枚舉下一種狀況。
 
+更詳細的內容寫在程式碼註解。
+
+### 條件的判斷
+
+假設格子 ($x_1$, $y_1$) 是要檢查且已經有皇后的格子，且 ($x_2$, $y_2$) 是要判斷是否能放皇后的格子，如果 $x_1 = x_2$，代表同一行有兩個可以互相攻擊的皇后，該條件不合法。對角線則是要從斜率判斷，斜率若為 $1$ 或 $-1$，則代表該條直線的皇后都能互相攻擊，因此只要判斷 &#124;$x_1 - x_2$\| 是否等於 &#124;$y_1 - y_2$\| 即可。
+
 <details>
 <summary>C++ 範例 </summary>
 ```cpp
@@ -66,6 +72,7 @@ char board[8][8];
 bool check[8][8];
 int ans = 0;
 
+//檢查之前的皇后是否合法
 bool ok(int x, int y) {
     for(int i = 0; i < 8; i++) {
         for(int j = 0; j < 8; j++) {
@@ -82,17 +89,23 @@ bool ok(int x, int y) {
     return true;
 }
 
+//枚舉
 void solve(int queen) {
+    // 枚舉完八個皇后了，並且都符合條件
     if(queen == 8) {
         ans++;
         return;
     }
+    // 枚舉同一列的 8 個位子
     for(int i = 0; i < 8; i++) {
+        // 遇到不合法的條件則跳過
         if(board[queen][i] == '*' || ok(queen, i) == false) {
             continue;
         }
+        // 將該位子標記為有棋子
         check[queen][i] = true;
         solve(queen + 1);
+        // 枚舉完記得要改回來
         check[queen][i] = false;
     }
 }
