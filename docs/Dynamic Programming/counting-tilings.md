@@ -1,7 +1,7 @@
 ---
 sidebar_position: 18
 ---
-Counting Tilings 題解
+Counting Tilings
 ===
 
 題目
@@ -47,26 +47,30 @@ P.S.範例用了滾動DP，但這題不用滾動DP也是可以的
 ### 範例程式碼
 <details>
 <summary>C++ 範例</summary>
-```cpp=
+```cpp
 #include<bits/stdc++.h>
+#define int long long
+#define IO ios_base::sync_with_stdio(0), cin.tie(0)
 using namespace std;
-using ll = long long;
-const ll mod = 1e9+7;
-int main(){
-    ios::sync_with_stdio(0);cin.tie(0);
-    ll n,m;
+const int mod = 1e9+7;
+
+signed main(){
+    IO;
+    int n,m;
     cin >> n >> m;
-    vector<ll> dp(1<<n,0);
-    ll mask = (1<<n)-1;
+    vector<int> dp(1 << n, 0);
+    int mask = (1 << n) - 1;
     dp[mask] = 1;
-    for(ll i = 1;i<=m;i++){
-        for(ll j = 0;j*2<mask;j++){
-            swap(dp[j],dp[mask^j]);
+    for(int i = 1; i <= m; i++) {
+        for(int j = 0; j * 2 < mask; j++) {
+            swap(dp[j] ,dp[mask ^ j]);
         }
-        for(ll k = 0;k<n-1;k++){
-            ll w = 3<<k;
-            for(ll j = 0;j<=mask;j++) if((j&w)==w){
-                dp[j] = (dp[j]+dp[j^w])%mod;
+        for(int k = 0; k < n - 1; k++) {
+            int w = 3 << k;
+            for(int j = 0; j <= mask; j++) {
+                if((j & w) == w) {
+                    dp[j] = (dp[j] + dp[j ^ w]) % mod;
+                }
             }
         }
     }
