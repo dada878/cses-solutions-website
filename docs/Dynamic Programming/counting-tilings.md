@@ -32,16 +32,16 @@ Output :
 輪廓線 DP
 
 ### 狀態定義
-$dp_{i,mask}$ 為第 $1$ 排到第 $i-1$ 排全滿，第 $i$ 排已填完 $mask$ 的方法數
+$dp[i][mask]$ 為第 $1$ 排到第 $i-1$ 排全滿，第 $i$ 排已填完 $mask$ 的方法數
 
 ### 狀態轉移
 對於從第 $i-1$ 排轉移到第 $i$ 排
 1. 先處理 $1\times 2$ 的，因為完成這一步後不能在前一行留空，所以轉移式為
-   $dp_{i,mask} = dp_{i-1,\sim mask}$ ("~"表位元反轉)
+   $dp[i][mask] = dp[i-1][\sim mask]$ ("~"表位元反轉)
 2. 處理 $2\times 1$ 的
    對於一個狀態，若加入一個 $domino$
    可以從同一排轉移，即
-   $dp_{i,mask} =dp_{i,mask}+ dp_{i,mask-domino}$
+   $dp[i][mask] =dp[i][mask]+ dp[i][mask-domino]$
    要注意為避免不同擺放順序被計為不同，要先枚舉"骨牌的位置"
    如果先枚舉"$mask$"，即範例中交換 `for k` 和 `for j`，會WA
 
