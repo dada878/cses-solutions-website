@@ -42,8 +42,7 @@ Output:
 設 $dp[i][j]$ 為走到當前點的方法數
 
 ### 狀態轉移
-- $dp[i + 1][j] = dp[i + 1][j] + dp[i][j]$ 
-- $dp[i][j + 1] = dp[i][j + 1] + dp[i][j]$
+- dp_{i, j} = dp_{i - 1, j} + dp_{i, j - 1}
 
 
 轉移後的 DP 陣列會長這樣
@@ -52,7 +51,7 @@ Output:
 
 **Note 1 :** 記得判斷不能從有陷阱的地方轉移
 
-**Note 2 :** $dp[0][0] = 1$，因為起始點在座標 $(0, 0)$，且只有一種方法到達起點
+**Note 2 :** 如果座標 $(0, 0)$ 的位子是陷阱的話，$dp_{0, 0}$ 要設成 $0$，否則要設成 $1$
 
 **Note 3 :** 記得特判終點是不是陷阱
 
@@ -80,14 +79,15 @@ signed main() {
             cin >> grid[i][j];
         }
     }
-    dp[0][0] = 1;
+    if(grid[0][0] == '.') {
+        dp[0][0] = 1;
+    }
     for(int i = 0; i < n; i++) {
         for(int j = 0; j < n; j++) {
             if(grid[i][j] == '*') continue;
-            dp[i + 1][j] += dp[i][j];
-            dp[i + 1][j] %= mod;
-            dp[i][j + 1] += dp[i][j];
-            dp[i][j + 1] %= mod;
+            if(i > 0) dp[i][j] += dp[i - 1][j]; 
+            if(j > 0) dp[i][j] += dp[i][j - 1];
+            dp[i][j] %= mod;
         }
     }
     if(grid[n - 1][n - 1] == '*') {
