@@ -78,8 +78,8 @@ $dp_{1, i}$ 為當建築第 $i$ 層為建築b的樣子時的建築蓋法。
 
 ### 狀態轉移
 經由上面觀察得到的東西可以得到
-$dp_{0, i} = 4 \times dp_{0, i - 1} + dp_{1, i-1}$
-$dp_{1, i} = dp_{0, i - 1} + 2 \times dp_{1, i - 1}$
+- $dp_{0, i} = 4 \times dp_{0, i - 1} + dp_{1, i-1}$
+- $dp_{1, i} = dp_{0, i - 1} + 2 \times dp_{1, i - 1}$
 
 ### 範例程式碼
 <details>
@@ -88,24 +88,23 @@ $dp_{1, i} = dp_{0, i - 1} + 2 \times dp_{1, i - 1}$
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
-const long long int MOD=1e9+7;
+const long long int MOD = 1e9 + 7;
 long long int dp[2][1000010];
 int main() {
     // ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
-    dp[0][1]=1;//oo
-    dp[1][1]=1;//<>
-    for(int i=2;i<=1000000;i++){
-        dp[0][i]=(dp[0][i-1]*4+dp[1][i-1])%MOD;
-        dp[1][i]=(dp[0][i-1]+dp[1][i-1]*2)%MOD;
+    dp[0][1] = 1;//oo
+    dp[1][1] = 1;//<>
+    for(int i = 2; i <= 1000000; i++) {
+        dp[0][i] = (dp[0][i - 1] * 4 + dp[1][i - 1]) % MOD;
+        dp[1][i] = (dp[0][i - 1] + dp[1][i - 1] * 2) % MOD;
     }
     int t;
-    cin>>t;
-    while(t--){
+    cin >> t;
+    while(t--) {
         long long int n;
         cin>>n;
-        cout<<(dp[0][n]+dp[1][n])%MOD<<"\n";
+        cout << (dp[0][n] + dp[1][n]) % MOD << "\n";
     }
-    return 0;
 }
 ```
 </details>
