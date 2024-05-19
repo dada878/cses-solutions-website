@@ -47,23 +47,6 @@ Output :
 
 $2 \times n+1$ 的第 $n + 1$ 層建築有8種可以和 $2 \times n$ 連接的方式
 
-<!-- ![image](https://hackmd.io/_uploads/B1ADMTmQA.png)
-
-![image](https://hackmd.io/_uploads/ryEFzaX7R.png)
-
-![image](https://hackmd.io/_uploads/Bk8qMpQ7C.png)
-
-![image](https://hackmd.io/_uploads/S1ijM6QXA.png)
-
-![image](https://hackmd.io/_uploads/SyjkQa7QR.png)
-
-![image](https://hackmd.io/_uploads/Sy5lma7mC.png)
-
-![image](https://hackmd.io/_uploads/HJxG76QXA.png)
-
-![image](https://hackmd.io/_uploads/B1eX76QXC.png)
- -->
-
 ![image](https://hackmd.io/_uploads/S10sNTXmC.png)
 
 如上圖所示
