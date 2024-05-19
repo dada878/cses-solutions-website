@@ -7,9 +7,9 @@ Counting Towers
 
 題目
 ---
-提供你無限多個長和寬都是整數的方塊，請你建造一個$2 \times n$大小的建築，請問你有多少方法可以蓋這個建築。
+提供你無限多個長和寬都是整數的方塊，請你建造一個 $2 \times n$ 大小的建築，請問你有多少方法可以蓋這個建築。
 
-只要看起來不同，就算其中一個建築為其他建築的鏡像或旋轉也是不同的。(以下為4個不同$2 \times 2$的建築)
+只要看起來不同，就算其中一個建築為其他建築的鏡像或旋轉也是不同的。(以下為4個不同 $2 \times 2$ 的建築)
 ![image](https://hackmd.io/_uploads/BJsIqK7XR.png)
 
 ## 輸入
@@ -31,11 +31,11 @@ Output :
 2
 8
 ```
-以下為$2 \times 1$建築的兩種蓋法
+以下為 $2 \times 1$ 建築的兩種蓋法
 ![image](https://hackmd.io/_uploads/SkYvpn7m0.png)
 
 
-以下為$2 \times 2$建築的8種蓋法
+以下為 $2 \times 2$ 建築的8種蓋法
 ![image](https://hackmd.io/_uploads/SyANahmQC.png)
 
 
@@ -79,8 +79,8 @@ $dp_{1, i}$ 為當建築第 $i$ 層為建築b的樣子時的建築蓋法。
 
 ### 狀態轉移
 經由上面觀察得到的東西可以得到
-$dp[0][i]=4 \times dp[0][i-1]+dp[1][i-1]$
-$dp[1][i]=dp[0][i-1]+2 \times dp[1][i-1]$
+$dp_{0, i} = 4 \times dp_{0, i - 1} + dp_{1, i-1}$
+$dp_{1, i} = dp_{0, i - 1} + 2 \times dp_{1, i - 1}$
 
 ### 範例程式碼
 <details>
