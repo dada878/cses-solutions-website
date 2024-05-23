@@ -50,6 +50,7 @@ P.S.範例用了滾動DP，但這題不用滾動DP也是可以的
 ### 範例程式碼
 <details>
 <summary>C++ 範例</summary>
+
 ```cpp
 #include<bits/stdc++.h>
 #define int long long

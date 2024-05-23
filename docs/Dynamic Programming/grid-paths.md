@@ -44,7 +44,6 @@ Output:
 ### 狀態轉移
 - $dp_{i, j} = dp_{i - 1, j} + dp_{i, j - 1}$
 
-
 轉移後的 DP 陣列會長這樣
 
 ![alt text](image-3.png)
