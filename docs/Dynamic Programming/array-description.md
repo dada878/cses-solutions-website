@@ -52,44 +52,43 @@ Output :
 <details>
 <summary>C++ 範例</summary>
 
-```cpp=
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
-const long long int MOD=1e9+7;
+const long long int MOD = 1e9+7;
 long long int dp[100010][110];
 int main() {
     // ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
-    int n,m;
-    cin>>n>>m;
+    int n, m;
+    cin >> n >> m;
     long long int tmp;
-    cin>>tmp;
-    if(tmp==0){
-        for(int j=1;j<=m;j++){
-            dp[1][j]=1;
+    cin >> tmp;
+    if(tmp == 0) {
+        for(int j = 1; j <= m; j++) {
+            dp[1][j] = 1;
         }
-    }else{
-        dp[1][tmp]=1;
+    } else {
+        dp[1][tmp] = 1;
     }
-    for(int i=2;i<=n;i++){
-        cin>>tmp;
-        if(tmp==0){
-            for(int j=1;j<=m;j++){
-                dp[i][j]=((dp[i-1][j-1]+dp[i-1][j])%MOD+dp[i-1][j+1])%MOD;
+    for(int i = 2; i <= n; i++) {
+        cin >> tmp;
+        if(tmp == 0) {
+            for(int j = 1; j <= m; j++) {
+                dp[i][j] = ((dp[i - 1][j - 1] + dp[i - 1][j]) % MOD + dp[i - 1][j + 1]) % MOD;
             }
-        }else{
-            dp[i][tmp]=((dp[i-1][tmp-1]+dp[i-1][tmp])%MOD+dp[i-1][tmp+1])%MOD;
+        } else {
+            dp[i][tmp] = ((dp[i - 1][tmp - 1] + dp[i - 1][tmp]) % MOD + dp[i - 1][tmp + 1]) % MOD;
         }
     }
-    if(tmp==0){
-        long long int answer=0;
-        for(int i=1;i<=m;i++){
-            answer=(answer+dp[n][i])%MOD;
+    if(tmp == 0) {
+        long long int answer = 0;
+        for(int i = 1; i <= m; i++) {
+            answer = (answer + dp[n][i]) % MOD;
         }
-        cout<<answer;
-    }else{
-        cout<<dp[n][tmp];
+        cout << answer;
+    } else {
+        cout << dp[n][tmp];
     }
-    return 0;
 }
 ```
 
@@ -105,47 +104,46 @@ int main() {
 <details>
 <summary>C++ 範例</summary>
 
-```cpp=
+```cpp
 #include <bits/stdc++.h>
 using namespace std;
-const long long int MOD=1e9+7;
+const long long int MOD = 1e9+7;
 long long int dp[2][110];
 int main() {
     // ios::sync_with_stdio(0),cin.tie(0),cout.tie(0);
-    int n,m;
-    cin>>n>>m;
+    int n, m;
+    cin >> n >> m;
     long long int tmp;
-    cin>>tmp;
-    if(tmp==0){
-        for(int j=1;j<=m;j++){
-            dp[1][j]=1;
+    cin >> tmp;
+    if(tmp == 0) {
+        for(int j = 1; j <= m; j++) {
+            dp[1][j] = 1;
         }
-    }else{
-        dp[1][tmp]=1;
+    } else {
+        dp[1][tmp] = 1;
     }
-    for(int i=2;i<=n;i++){
-        cin>>tmp;
-        for(int j=1;j<=m;j++){
-            dp[i%2][j]=0;
+    for(int i = 2; i <= n; i++) {
+        cin >> tmp;
+        for(int j = 1; j <= m; j++) {
+            dp[i % 2][j] = 0;
         }
-        if(tmp==0){
-            for(int j=1;j<=m;j++){
-                dp[i%2][j]=((dp[(i+1)%2][j-1]+dp[(i+1)%2][j])%MOD+dp[(i+1)%2][j+1])%MOD;
+        if(tmp == 0) {
+            for(int j = 1; j <= m; j++) {
+                dp[i % 2][j]=((dp[(i + 1) % 2][j - 1]+dp[(i + 1) % 2][j]) % MOD + dp[(i + 1) % 2][j + 1]) % MOD;
             }
-        }else{
-            dp[i%2][tmp]=((dp[(i+1)%2][tmp-1]+dp[(i+1)%2][tmp])%MOD+dp[(i+1)%2][tmp+1])%MOD;
+        } else {
+            dp[i % 2][tmp]=((dp[(i + 1) % 2][tmp - 1] + dp[(i + 1) % 2][tmp]) % MOD + dp[(i + 1) % 2][tmp + 1]) % MOD;
         }
     }
-    if(tmp==0){
-        long long int answer=0;
-        for(int i=1;i<=m;i++){
-            answer=(answer+dp[n%2][i])%MOD;
+    if(tmp == 0) {
+        long long int answer = 0;
+        for(int i = 1; i <= m; i++) {
+            answer = (answer + dp[n % 2][i]) % MOD;
         }
-        cout<<answer;
-    }else{
-        cout<<dp[n%2][tmp];
+        cout << answer;
+    } else {
+        cout << dp[n % 2][tmp];
     }
-    return 0;
 }
 ```
 
