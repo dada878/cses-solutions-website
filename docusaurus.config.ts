@@ -5,8 +5,8 @@ import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
 
 const config: Config = {
-  title: 'CSES 中文題解集',
-  tagline: '超酷的中文題解',
+  title: '程式題解中心',
+  tagline: '全中文題解',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
