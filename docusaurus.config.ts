@@ -73,7 +73,7 @@ const config: Config = {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'CSES 題解網站',
+      title: '程式題解中心',
       logo: {
         alt: 'My Site Logo',
         src: 'img/logo.svg',
