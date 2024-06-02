@@ -27,7 +27,7 @@ Output:
 2
 ```
 
-![image](https://hackmd.io/_uploads/S1SyKqx40.png)
+![alt text](image.png)
 
 ## 觀察
 1. 數值範圍非常大但真正影響顧客數量的「時間點」很小。
