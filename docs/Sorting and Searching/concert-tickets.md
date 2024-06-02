@@ -34,47 +34,61 @@ Output:
 
 第三位客人會買最接近且小於等於 $3$ 的票，但是唯一一張小於等於 $3$ 的票被第一位客人買走了，所以沒有符合第三位客人的票，因此輸出 $-1$
 
-想法
----
-每位客人都要找小於或等於某個價格的票，要怎麼最快找到符合條件的票呢 ? 二分搜是我們最好的選擇，因為排序後的票價具有單調性。最後的演算法是使用二分搜找到當前客人要買的票，並且將其從未售出的票裡面移除，因為移除不影響原序列單調性，下一位客人需要的票也可以直接使用二分搜找到答案。
+## 觀察
+1. 將票價排序後不影響結果。
+2. 針對每個查詢，可以買的票具有單調性。
+3. 每次查詢過後，有機會得刪掉某個票價。
 
-直接實作好麻煩喔，有什麼比較方便的方法實作這題嗎 ? C++有內建資料結構 `multiset`，他會將已加入的元素進行排序，也可以從中移除元素，並且加入和移除元素的時間複雜度皆為 $O(logn)$。
+## 想法
+每位客人都要找小於或等於某個價格的票，要怎麼最快找到符合條件的票呢 ? 二分搜是我們最好的選擇，因為排序後並不影響最終結果，並且票價具有單調性。最後的演算法是使用二分搜找到當前客人要買的票，並且將其從未售出的票裡面移除，因為移除不影響原序列單調性，下一位客人需要的票也可以直接使用二分搜找到答案。
 
-**Note :** `upper_bound` 是 C++ 內建的二分搜函式，他會回傳第一個大於目標值的迭代器，因此在 `upper_bound` 的前一個位子就是要找的答案，若 `upper_bound` 回傳的迭代器是 `multiset` 的第一個位子，代表沒有小於等於顧客需求的票價，輸出 $-1$ 。
+為了確保陣列是排序的，並且能夠動態刪除元素，可以使用 C++ 內建的資料結構 `multiset`（因為票價可能重複，所以不能用 `set`）維護。
+
+> 若你未曾使用過 `multiset`，請至 [這裡](https://yuihuang.com/cpp-stl-set/) 查看教學。
+
+對於每個查詢，可以先使用 `multiset` 內建的 `upper_bound` 找到大於 $t_i$ 的最小票價，在使用 `prev` 找到他的前一個票價（也就是最大的，小於等於 $t_i$ 的票價）。
+
+請注意，若 `upper_bound` 搜尋的結果正是最小的元素，就代表沒有可買的票。
+
+最後，每次查詢的時間複雜度是 $\log(n)$，刪除元素的時間複雜度是 $\log(n)$，因此總時間複雜度是 $\log(n)$。
 
 ### 範例程式碼
 
 <details>
 <summary>C++ 範例</summary>
+
 ```cpp
 #include <bits/stdc++.h>
-#define int long long 
-#define IO ios_base::sync_with_stdio(0), cin.tie(0)
 using namespace std;
 
-signed main() {
-    IO;
-    int n, m;
-    cin >> n >> m;
-    multiset<int>mst;
-    for(int i = 0; i < n; i++) {
-        int h;
-        cin >> h;
-        mst.insert(h);
+int n, q, a;
+multiset<int> ss;
+
+int main(){
+
+    // input
+    cin >> n >> q;
+    for (int i=0 ; i<n ; i++){
+        cin >> a;
+        ss.insert(a);
     }
-    for(int i = 0; i < m; i++) {
-        int t;
-        cin >> t;
-        auto it = mst.upper_bound(t);
-        if(it == mst.begin()) {
-            cout << -1 << endl;
-        }
-        else {
-            it--;
-            cout << *it << endl;
-            mst.erase(it);
+
+    // queries
+    for (int i=0 ; i<q ; i++){
+        cin >> a;
+        auto it = ss.upper_bound(a);
+
+        if (it==ss.begin()){
+            cout << -1 << "\n";
+        }else{
+            cout << *prev(it) << "\n";
+            ss.erase(prev(it));
         }
     }
+
+    return 0;
 }
 ```
 </details>
+
+請注意，`set/multiset` 中，要使用 `ss.lower_bound` 的形式才能在 $\log (n)$ 的時間複雜度得到結果。
