@@ -2,7 +2,7 @@
 sidebar_position: 14
 ---
 
-Two Sets II 題解
+Two Sets II
 ===
 
 ## 題目
