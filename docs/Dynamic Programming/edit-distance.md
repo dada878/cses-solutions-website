@@ -58,6 +58,10 @@ $dp_{i,j}=\left\{\begin{align}&\max(i,j)&\text{if}\min(i,j)=0\\&min(dp_{i-1,j}+1
 
 ### 範例程式碼
 使用 1 base 避免 $i-1$ 或 $j-1$ 會超過陣列範圍，因此正在考慮的文字會在 $i-1,j-1$ 的位置。
+
+<details>
+<summary>C++ 範例</summary>
+
 ```cpp
 #include <bits/stdc++.h>
 using namespace std;
@@ -77,3 +81,5 @@ int main(){
     cout << dp[n][m];
 }
 ```
+
+</details>
