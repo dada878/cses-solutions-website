@@ -2,7 +2,7 @@
 sidebar_position: 16
 ---
 
-Projects 題解
+Projects
 ===
 
 ## 題目
