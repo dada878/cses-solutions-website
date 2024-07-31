@@ -57,6 +57,8 @@ Output:
 
 注意總金額可能超過 `int` 。
 
+### 範例程式碼
+
 <details>
 <summary>C++ 範例</summary>
 
